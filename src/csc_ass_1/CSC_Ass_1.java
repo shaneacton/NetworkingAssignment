@@ -13,17 +13,6 @@ public class CSC_Ass_1
     
     public static void main(String[] args)
     {
-        Socket MyClient = null;
-        
-        try 
-        {
-            MyClient = new Socket("Chatbot",1050);
-        } 
-        catch (IOException ex) 
-        {
-            System.out.println(ex);
-        }
-        
         
         ServerSocket MyService = null;
         
@@ -35,6 +24,20 @@ public class CSC_Ass_1
         {
             System.out.println(ex);
         }
+        
+        
+        Socket MyClient = null;
+        
+        try 
+        {
+            //InetAddress addr = InetAddress.getByName("127.0.0.1");
+            MyClient = new Socket("127.0.0.1",1050);
+        } 
+        catch (IOException ex) 
+        {
+            System.out.println(ex);
+        }
+        
         
         Socket serviceSocket = null;
         
