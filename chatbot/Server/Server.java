@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chatbot;
+package chatbot.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,15 +19,15 @@ public class Server {
     public ServerSocket serverSocket = null;
 
     final static int PORT = 1234;
-    static ArrayList<ClientListener> clients;
+    public static List<ClientListener> clients = new ArrayList<>();
 
-    public Server() {
+    public Server() { 
         try {
             serverSocket = new ServerSocket(PORT);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        clients = new ArrayList<>();
+        
     }
 
     public void addClient(ClientListener newClient) {
