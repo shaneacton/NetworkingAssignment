@@ -19,11 +19,19 @@ public class RunClient {
         System.out.println("Enter Name");
         Client client = new Client(s.next());
 
+        System.out.println("Enter receiver ID:");
+        int receiverID = Integer.parseInt(s.next());
+
         System.out.println("Type Messages:");
         String send = s.next();
-            while (!send.equals("q")) {//taking in messages
-                client.sendToServer("message:", send);
-                send = s.next();
-            }
+
+        while (!send.equals("q")) {//taking in messages
+            client.sendToServer("message:" + client.ID + ":" + receiverID, send);
+
+            System.out.println("Enter receiver ID:");
+            receiverID = Integer.parseInt(s.next());
+            System.out.println("Type Messages:");
+            send = s.next();
+        }
     }
 }

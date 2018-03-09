@@ -18,8 +18,7 @@ public class Server {
     public ServerSocket serverSocket = null;
 
     final static int PORT = 1234;
-
-    ArrayList<ClientListener> clients;
+    static ArrayList<ClientListener> clients;
 
     public Server() {
         try {
@@ -33,5 +32,8 @@ public class Server {
     public void addClient(ClientListener newClient) {
         clients.add(newClient);
         newClient.start();
+
+        clients.get(clients.size() - 1).sendToClient("id", (clients.size() - 1) + "");
     }
+
 }
